@@ -144,6 +144,7 @@ void Graph::loadGraph() {
 	// Z is good
 };
 
+// prints out all edges of each vertice -- e.g.  Vertex: (destination vertex, weight) (destination vertex, weight) etc.
 void Graph::printList() {
 	for (int i = 0; i < numVertices; i++) {
 		cout << vertices_arr[i].label << ": ";
@@ -154,6 +155,8 @@ void Graph::printList() {
 		};
 		cout << "\n";
 	};
+
+	cout << "_________________________________________________________________________________________________________";
 };
 
 void Graph::printMST() {
