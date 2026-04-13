@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="MST Solver/MST Solver.vcxproj" Id="eee70d6a-4dd6-4fef-a153-22110f593ad9" />
+</Solution>
