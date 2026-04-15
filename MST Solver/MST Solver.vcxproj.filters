@@ -24,18 +24,18 @@
     <ClCompile Include="Kruskal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UnionFind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EdgeNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Kruskal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionFind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

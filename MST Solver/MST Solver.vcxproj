@@ -130,12 +130,12 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Kruskal.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnionFind.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EdgeNode.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Kruskal.h" />
-    <ClInclude Include="VertexNode.h" />
+    <ClInclude Include="UnionFind.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

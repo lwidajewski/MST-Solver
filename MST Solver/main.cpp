@@ -1,16 +1,20 @@
 #include <iostream>
 
 #include "Graph.h"
+#include "Kruskal.h"
 
 using namespace std;
 
 
 int main() {
-	Graph g;
+	Graph graph;
+	Kruskal k;
 
-	g.create();
-	g.loadGraph();
-	g.printList();
+	graph.create();
+	graph.loadGraph();
+	graph.printList();
+
+	k.kruskal(graph);
 
 	return 0;
 };
