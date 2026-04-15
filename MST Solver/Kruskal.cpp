@@ -42,9 +42,41 @@ void Kruskal::sortEdges(Edge* edges, int edgeCount) {
 
 void Kruskal::kruskal(Graph& g) {
 	//cout << "Kruskal called";
+	int verticesNum = g.vertices(); // gets number of vertices from Graph
+	int edgeCount = 0;
 
-};
+	Edge* edges = new Edge[verticesNum * (verticesNum - 1) / 2]; // max possible number of edges
 
-void Kruskal::printMST() {
+	// sort edges by weight
+	getEdges(g, edges, edgeCount);
+	sortEdges(edges, edgeCount);
+
+	// perform Kruskal's algorithm
+	UnionFind uf(verticesNum); // initialize UnionFind with number of vertices
+
+	Edge* miniSpanTree = new Edge[verticesNum - 1]; // minimum spanning tree has n (vertices) - 1 edges
+	int totalWeight = 0;
+	int mstEdges = 0;
+
+	for (int i = 0; i < edgeCount && mstEdges < i - 1; i++) {
+		int source = edges[i].source;
+		int destination = edges[i].destination;
+
+		if (!uf.connected(source, destination)) { // add an edge only if it does not form a loop
+			uf.unionSets(source, destination); // join the two vertices together
+			miniSpanTree[mstEdges++] = edges[i]; // add the edge to the MST
+			totalWeight = totalWeight + edges[i].weight; // add to the total weight
+		};
+	};
+
+	// print minimum spanning tree
+	cout << "MST Edges:\n";
+	cout << "_________________________________________________________________________________________________________" << endl;
+	for (int i = 0; i < mstEdges; i++) {
+		cout << miniSpanTree[i].source << "->" << miniSpanTree[i].destination << " (weight = " << miniSpanTree[i].weight << ")" << endl;
+	};
+	cout << "_________________________________________________________________________________________________________" << endl;
+	cout << "Total Weight: " << totalWeight << endl;
+	cout << "Total MST Edges: " << mstEdges << endl;
 
 };
