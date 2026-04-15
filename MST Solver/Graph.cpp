@@ -13,7 +13,7 @@ Graph::Graph() {
 };
 
 
-// find node in array
+// ---------- functions ----------
 int Graph::search(char vertex) {
 	for (int i = 0; i < numVertices; i++) {
 		if (vertices_arr[i].label == vertex) {
@@ -81,6 +81,10 @@ int Graph::vertices() {
 	return numVertices;
 };
 
+VertexNode* Graph::getVertices() { // needed for Kruskal
+	return vertices_arr;
+};
+
 void Graph::addEdge(char i, char j, int w) {
 	// check if nodes are present in array
 	int indexOfI = search(i);
@@ -111,11 +115,12 @@ void Graph::addEdge(char i, char j, int w) {
 	nodeJI->next = vertices_arr[indexOfJ].head;
 	vertices_arr[indexOfJ].head = nodeJI;
 
-	numEdges++; // increment number of edges
+	numEdges = numEdges + 2; // increment number of edges
 };
 
 void Graph::loadGraph() {
-	// this was a little annoying to do and I'm mad I couldn't think of something better I just kind of crossed off edges from the image when I added them so there weren't repeats
+	// this was a little annoying to do and I'm mad I couldn't think of something better 
+	// I just kind of crossed off edges from the image when I added them so there weren't repeats
 	addEdge('A', 'B', 29); addEdge('A', 'D', 6);
 	addEdge('B', 'C', 34); addEdge('B', 'E', 17); addEdge('B', 'Y', 4);
 	addEdge('C', 'D', 8); addEdge('C', 'E', 37); addEdge('C', 'F', 13);
@@ -156,11 +161,7 @@ void Graph::printList() {
 		cout << "\n";
 	};
 
-	cout << "_________________________________________________________________________________________________________";
-};
-
-void Graph::printMST() {
-
+	cout << "_________________________________________________________________________________________________________" << endl;
 };
 
 
