@@ -22,6 +22,10 @@ int main() {
 
 			graph.create();
 			graph.loadGraph();
+			//int edges = graph.edges();
+			//cout << edges;
+			//int vertices = graph.vertices();
+			//cout << vertices;
 			graph.printList();
 
 			k.kruskal(graph);
