@@ -7,14 +7,28 @@ using namespace std;
 
 
 int main() {
-	Graph graph;
-	Kruskal k;
+	int choice = -1;
 
-	graph.create();
-	graph.loadGraph();
-	graph.printList();
+	while (choice != 0) {
+		cout << "\n\n1: Run Kruskal's Algorithm on Graph" << endl;
+		cout << "0: Exit" << endl;
+		cout << "\nChoice: ";
+		cin >> choice;
+		cout << "\n\n\n";
 
-	k.kruskal(graph);
+		if (choice == 1) {
+			Graph graph;
+			Kruskal k;
+
+			graph.create();
+			graph.loadGraph();
+			graph.printList();
+
+			k.kruskal(graph);
+
+			cout << "_________________________________________________________________________________________________________";
+		};
+	};
 
 	return 0;
 };
