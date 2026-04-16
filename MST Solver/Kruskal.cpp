@@ -96,7 +96,6 @@ void Kruskal::kruskal(Graph& g) {
 	};
 
 	// print minimum spanning tree
-	cout << "_________________________________________________________________________________________________________" << endl;
 	cout << "MST Edges:" << endl;
 	for (int i = 0; i < mstEdges; i++) {
 		cout << miniSpanTree[i].source << "->" << miniSpanTree[i].destination << " (weight = " << miniSpanTree[i].weight << ")" << endl;
