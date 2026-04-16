@@ -59,6 +59,11 @@ void Kruskal::sortEdges(Edge* edges, int edgeCount) {
 	};
 };
 
+// used in kruskal() function to convert source and destination chars to an index int that is usable for UnionFind later
+int Kruskal::charToIndex(char c) {
+	return c - 'A';
+};
+
 void Kruskal::kruskal(Graph& g) {
 	//cout << "Kruskal called" << endl;
 	int verticesNum = g.vertices(); // gets number of vertices from Graph
@@ -73,15 +78,17 @@ void Kruskal::kruskal(Graph& g) {
 	// perform Kruskal's algorithm
 	UnionFind uf(verticesNum); // initialize UnionFind with number of vertices
 
-	Edge* miniSpanTree = new Edge[verticesNum - 1]; // minimum spanning tree has n (vertices) - 1 edges
+	Edge* miniSpanTree = new Edge[verticesNum - 1]; // minimum spanning tree has n (or vertices) - 1 , edges
 	int totalWeight = 0;
 	int mstEdges = 0;
 
-	for (int i = 0; i < edgeCount && mstEdges < i - 1; i++) {
-		int source = edges[i].source;
-		int destination = edges[i].destination;
+	for (int i = 0; i < edgeCount && mstEdges < verticesNum - 1; i++) { // initially this was mstEdges < i - 1 which is wrong, changed i to verticesNum since that will be max edges for MST
+		//cout << "Kruskal started" << endl;
+		int source = charToIndex(edges[i].source);
+		int destination = charToIndex(edges[i].destination);
 
 		if (!uf.connected(source, destination)) { // add an edge only if it does not form a loop
+			//cout << "Edge added since not connected yet" << endl;
 			uf.unionSets(source, destination); // join the two vertices together
 			miniSpanTree[mstEdges++] = edges[i]; // add the edge to the MST
 			totalWeight = totalWeight + edges[i].weight; // add to the total weight
@@ -89,8 +96,8 @@ void Kruskal::kruskal(Graph& g) {
 	};
 
 	// print minimum spanning tree
-	cout << "MST Edges:\n";
 	cout << "_________________________________________________________________________________________________________" << endl;
+	cout << "MST Edges:" << endl;
 	for (int i = 0; i < mstEdges; i++) {
 		cout << miniSpanTree[i].source << "->" << miniSpanTree[i].destination << " (weight = " << miniSpanTree[i].weight << ")" << endl;
 	};
