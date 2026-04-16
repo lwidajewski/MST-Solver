@@ -151,6 +151,7 @@ void Graph::loadGraph() {
 
 // prints out all edges of each vertice -- e.g.  Vertex: (destination vertex, weight) (destination vertex, weight) etc.
 void Graph::printList() {
+	cout << "\n\nGraph:" << endl;
 	for (int i = 0; i < numVertices; i++) {
 		cout << vertices_arr[i].label << ": ";
 		EdgeNode* curr = vertices_arr[i].head;
