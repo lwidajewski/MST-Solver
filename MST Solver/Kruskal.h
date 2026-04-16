@@ -18,7 +18,7 @@ class Kruskal {
 		void kruskal(Graph& g);
 		void getEdges(Graph& g, Edge* edges, int& edgeCount);
 		void sortEdges(Edge* edges, int edgeCount);
-		void printMST();
+		int charToIndex(char c);
 };
 
 #endif

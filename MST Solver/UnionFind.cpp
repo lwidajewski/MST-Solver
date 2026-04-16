@@ -1,4 +1,8 @@
+#include <iostream>
+
 #include "UnionFind.h"
+
+using namespace std;
 
 
 // ---------- constructor ----------
@@ -17,11 +21,11 @@ UnionFind::UnionFind(int n) {
 // ---------- functions ----------
 int UnionFind::find(int i) {
 	if (parent[i] != i) {
+		//cout << "We recursive called" << endl;
 		parent[i] = find(parent[i]); // recursive call
 	}
-	else {
-		return parent[i]; // found
-	};
+	//cout << "We got to the return" << endl;
+	return parent[i]; // found
 };
 
 bool UnionFind::connected(int i, int j) {

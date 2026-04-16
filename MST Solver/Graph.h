@@ -24,7 +24,6 @@ class Graph {
 		int search(char vertex); // finds where node is in array
 		void clearGraph();
 	public:
-		int sortedEdges[];
 		Graph();
 
 		void create(); // creates graph with 26 vertices for 26 letters
