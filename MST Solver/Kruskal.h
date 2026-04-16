@@ -13,12 +13,11 @@ struct Edge {
 
 class Kruskal {
 	private:
-
+		int charToIndex(char c);
 	public:
 		void kruskal(Graph& g);
 		void getEdges(Graph& g, Edge* edges, int& edgeCount);
 		void sortEdges(Edge* edges, int edgeCount);
-		int charToIndex(char c);
 };
 
 #endif
