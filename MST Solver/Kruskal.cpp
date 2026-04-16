@@ -6,6 +6,7 @@ using namespace std;
 
 
 void Kruskal::getEdges(Graph& g, Edge* edges, int& edgeCount) {
+	//cout << "Get edges called" << endl;
 	edgeCount = 0;
 	VertexNode* vertices_list = g.getVertices(); // gets vertices_arr from Graph
 	int verticesNum = g.vertices(); // gets the number of vertices from Graph
@@ -27,21 +28,39 @@ void Kruskal::getEdges(Graph& g, Edge* edges, int& edgeCount) {
 };
 
 void Kruskal::sortEdges(Edge* edges, int edgeCount) {
+	//cout << "Bubble sort called" << endl;
 	// bubble sort
 	for (int i = 0; i < edgeCount - 1; i++) { // minus by 1 since last element is automatically sorted
-		for (int j = 0; j < edgeCount - i - 1; i++) { // minus by 1 and i to make less comparisons since the higher numbers would already be sorted
+		for (int j = 0; j < edgeCount - i - 1; j++) { // minus by 1 and i to make less comparisons since the higher numbers would already be sorted
 			if (edges[j].weight > edges[j + 1].weight) {
+				/*
+				cout << "Swapping: " << edges[j].source << "," << edges[j].destination << "," << edges[j].weight << endl;
+				cout << "With: " << edges[i].source << "," << edges[i].destination << "," << edges[i].weight << endl;
+				*/
+
+
 				// swap if the weight on the left in the array is greater than the weight just to the right of it
 				Edge temp = edges[j];
 				edges[j] = edges[j + 1];
-				edges[j + 1] = edges[j];
+				edges[j + 1] = temp;
+
+
+				//cout << "Edges swapped" << endl;
 			};
 		};
+		
+		/*
+		cout << "Pass: " << i + 1 << ": " << endl;
+		for (int k = 0; k < edgeCount; k++) {
+			cout << "(" << edges[k].source << "," << edges[k].destination << "," << edges[k].weight << ")";
+		};
+		cout << "\n\n\n";
+		*/
 	};
 };
 
 void Kruskal::kruskal(Graph& g) {
-	//cout << "Kruskal called";
+	//cout << "Kruskal called" << endl;
 	int verticesNum = g.vertices(); // gets number of vertices from Graph
 	int edgeCount = 0;
 
