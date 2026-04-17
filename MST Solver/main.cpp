@@ -9,6 +9,7 @@ using namespace std;
 int main() {
 	int choice = -1;
 
+	// main loop
 	while (choice != 0) {
 		cout << "\n\n1: Run Kruskal's Algorithm on Graph" << endl;
 		cout << "0: Exit" << endl;

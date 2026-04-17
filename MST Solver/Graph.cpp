@@ -73,7 +73,7 @@ bool Graph::hasEdge(char i, char j) {
 	return false;
 };
 
-int Graph::edges() {
+int Graph::edges() { // I don't think I used this but it's here anyway
 	return numEdges;
 };
 
